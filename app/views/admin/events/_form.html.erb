@@ -29,5 +29,10 @@
 <div class="form-group">
   <%= f.label :status %>
 
-  <%= f.select :status, Event::STATUS.map{ |s| [t(s, :scope => "event.status"), s] }, {}, :class => "form-control" %>
+  <% Event::STATUS.each do |status| %>
+    <lable>
+      <%= f.radio_button :status, status %>
+      <%= t(status, :scope => "event.status") %>
+    </lable>
+  <% end %>
 </div>
