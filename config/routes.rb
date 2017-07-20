@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "events#index"
     resources :events
+    resources :users
   end
 
   root "events#index"
@@ -14,5 +15,7 @@ Rails.application.routes.draw do
   get "/faq" => "pages#faq"
 
   resource :user
+
+
 
 end
