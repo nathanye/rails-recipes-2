@@ -2,3 +2,7 @@
 
 
 <%= simple_format @event.description %>
+
+<h2><%= display_event_status(@event) %></h2>
+
+<h2><%= t(@event.status, :scope => "event.status") %></h2>
