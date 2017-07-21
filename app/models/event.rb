@@ -12,6 +12,8 @@ class Event < ApplicationRecord
    self.friendly_id
  end
 
+ has_many :registrations, :dependent => :destroy
+
 
 
  protected
