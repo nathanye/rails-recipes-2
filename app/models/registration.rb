@@ -20,6 +20,9 @@ class Registration < ApplicationRecord
 
   validate :check_event_status, :on => :create
 
+  scope :by_status, ->(s){ where( :status => s ) }
+  scope :by_ticket, ->(t){ where( :ticket_id => t ) }
+
   protected
 
   def generate_uuid
