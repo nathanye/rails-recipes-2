@@ -1,4 +1,6 @@
-"zh-CN":
+"zh-CN":  
+  bulk_update: 批次编辑
+  bulk_delete: 批次删除
   hello: "亲～ %{name} 你好："
   event_list: 活动列表
   admin:
@@ -13,4 +15,4 @@
     status:
       draft: 草稿
       public: 公开
-      private: 私密      
+      private: 私密
