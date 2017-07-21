@@ -22,6 +22,20 @@ class RegistrationsController < ApplicationController
     @registration = @event.registrations.find_by_uuid(params[:id])
   end
 
+  def step2
+    @registration = @event.registrations.find_by_uuid(params[:id])
+  end
+
+  def step2_update
+    @registration = @event.registrations.find_by_uuid(params[:id])
+
+    if @registration.update(registration_params)
+      redirect_to step3_event_registration_path(@event, @registration)
+    else
+      render "step2"  
+    end
+  end
+
   protected
 
   def registration_params
