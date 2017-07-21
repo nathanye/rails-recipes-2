@@ -10,6 +10,7 @@ class RegistrationsController < ApplicationController
     @registration.ticket = @event.tickets.find( params[:registration][:ticket_id] )
     @registration.status = "pending"
     @registration.user = current_user
+    @registration.current_step = 1
 
     if @registration.save
       redirect_to step2_event_registration_path(@event, @registration)
@@ -28,11 +29,12 @@ class RegistrationsController < ApplicationController
 
   def step1_update
     @registration = @event.registrations.find_by_uuid(params[:id])
+    @registration.current_step = 1
 
     if @registration.update(registration_params)
       redirect_to step2_event_registration_path(@event, @registration)
     else
-      render "step1"  
+      render "step1"
     end
   end
 
@@ -42,6 +44,7 @@ class RegistrationsController < ApplicationController
 
   def step2_update
     @registration = @event.registrations.find_by_uuid(params[:id])
+    @registration.current_step = 2
 
     if @registration.update(registration_params)
       redirect_to step3_event_registration_path(@event, @registration)
@@ -52,6 +55,7 @@ class RegistrationsController < ApplicationController
 
   def step3
     @registration = @event.registrations.find_by_uuid(params[:id])
+    @registration.current_step = 3
   end
 
   def step3_update
