@@ -15,6 +15,8 @@ class Event < ApplicationRecord
  has_many :registrations, :dependent => :destroy
 
 mount_uploader :logo, EventLogoUploader
+mount_uploaders :images, EventImageUploader
+serialize :images, JSON
 
  protected
 
