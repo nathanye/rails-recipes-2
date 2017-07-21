@@ -1,5 +1,8 @@
 class Event < ApplicationRecord
 
+  include RankedModel
+  ranks :row_order
+
  validates_presence_of :name, :friendly_id
 
  validates_uniqueness_of :friendly_id
@@ -8,6 +11,8 @@ class Event < ApplicationRecord
  def to_param
    self.friendly_id
  end
+
+
 
  protected
 
