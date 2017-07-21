@@ -12,11 +12,14 @@ class Event < ApplicationRecord
    self.friendly_id
  end
 
- has_many :registrations, :dependent => :destroy
+  has_many :registrations, :dependent => :destroy
 
-mount_uploader :logo, EventLogoUploader
-mount_uploaders :images, EventImageUploader
-serialize :images, JSON
+  mount_uploader :logo, EventLogoUploader
+  mount_uploaders :images, EventImageUploader
+  serialize :images, JSON
+
+  has_many :attachments, :class_name => "EventAttachment", :dependent => :destroy
+  accepts_nested_attributes_for :attachments, :allow_destroy => true, :reject_if => :all_blank
 
  protected
 
