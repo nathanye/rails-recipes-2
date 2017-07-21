@@ -25,7 +25,7 @@ class Registration < ApplicationRecord
   end
 
   def should_validate_basic_data?
-    current_user_step == 2 # 只有做到第二步需要验证
+    current_step == 2 # 只有做到第二步需要验证
   end
 
   def should_validate_all_data?
