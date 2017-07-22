@@ -30,6 +30,24 @@ var myChart1 = new Chart(ctx1, {
 
 <hr>
 
+<canvas id="myChart3" width="400" height="200"></canvas>
+<script>
+var ctx3 = document.getElementById("myChart3");
+var myChart3 = new Chart(ctx3, {
+    type: 'line',
+    data: <%= raw @data3.to_json %>,
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
   <canvas id="myChart2" width="400" height="200"></canvas>
   <script>
   var ctx2 = document.getElementById("myChart2");
