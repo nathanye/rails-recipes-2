@@ -45,6 +45,8 @@ gem 'axlsx'
 
 gem 'axlsx_rails'
 
+gem 'letter_opener'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
