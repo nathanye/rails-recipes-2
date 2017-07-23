@@ -13,6 +13,7 @@ class Event < ApplicationRecord
  end
 
   has_many :registrations, :dependent => :destroy
+  has_many :registration_imports, :dependent => :destroy
 
   mount_uploader :logo, EventLogoUploader
   mount_uploaders :images, EventImageUploader
